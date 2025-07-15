@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { connDB } from './config/db.js'
 import router from './routes/notesRoutes.js'
+import limiter from './middleware/rateLimiter.js'
 
 dotenv.config()
 
@@ -11,6 +12,8 @@ const PORT = process.env.PORT || 5001
 connDB()
 
 app.use(express.json())
+
+app.use(limiter)
 
 app.use('/api/routes',router)
 
