@@ -1,9 +1,9 @@
-import React from 'react'
+
 
 const CreatePage = () => {
   return (
-    <div>
-      
+    <div className='text-white'>
+      Create New Note
     </div>
   )
 }

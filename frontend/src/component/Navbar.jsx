@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav className='bg-black p-4 flex justify-between items-center text-white shadow-md'>
-      {/* Logo or Brand */}
       <Link to="/" className='text-2xl font-semibold tracking-wide hover:text-gray-300 transition'>
         NotesApp
       </Link>
