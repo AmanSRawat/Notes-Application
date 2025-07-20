@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Trash } from 'lucide-react';
 import { Pencil } from 'lucide-react';
+import { formatDate } from '../lib/utils.js';
 
 const HomePage = () => {
   const [notes, setNotes] = useState([])
@@ -49,11 +50,13 @@ const HomePage = () => {
       ) : (
         notes.map((note) => (
           <div key={note._id} className='bg-gray-800 text-white p-4 rounded-lg shadow  transition'>
-            <Link to={`/note/${note._id}`}   className='block'>
+           
               <h2 className='text-xl font-bold mb-2'>{note.title}</h2>
               <p className='text-sm text-gray-300'>{note.content.slice(0, 100)}...</p>
-              <p className='text-sm, text-gray-300'>{new Date(note.createdAt).toLocaleString()}</p>
-            </Link>
+              <div className='flex justify-between items-end mt-10'>
+                <p className='text-sm text-gray-300'>{formatDate(new Date(note.createdAt))}</p>
+              </div>
+            
             <div className='flex justify-end mt-4'>
                 <button 
                   className='ml-2 p-2 rounded-full hover:bg-red-500 cursor-pointer focus:outline-none'
